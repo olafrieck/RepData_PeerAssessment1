@@ -72,6 +72,11 @@ MisVal<-sum(is.na(Activity$steps))
 
 ### The number of missing values in the Dataset is **`r MisVal`**.
 
+<br />   
+
+### My strategy for replacing missing values is to replace every NA with the average of all value of the that interval. 
+
+<br />   
 ```{r ReplaceAndAnalze}
 
 ## replace missing values
@@ -87,7 +92,7 @@ head(CleanActivity)
 
 DailySteps<-tapply(CleanActivity$steps,CleanActivity$date,sum)
 
-hist(DailySteps,main="Histogram of the sum of daily steps",xlab="Sum of daily Steps")
+hist(DailySteps,main="Histogram of the sum of daily steps - Missing values replaced ",xlab="Sum of daily steps")
 
 MeanofDailyStepsClean<-mean(DailySteps)
 MedianofDailyStepsClean<-median(DailySteps)
